@@ -69,6 +69,15 @@ class QuizGame:
         self.quizzes.append(Quiz(question, choices, answer))
         print("퀴즈를 추가했습니다.")
 
+    def show_quizzes(self):
+        if not self.quizzes:
+            print("등록된 퀴즈가 없습니다.")
+            return
+
+        print(f"\n등록된 퀴즈 ({len(self.quizzes)}개)")
+        for number, quiz in enumerate(self.quizzes, start=1):
+            print(f"  {number}. {quiz.question}")
+
     def run(self):
         try:
             while True:
@@ -78,6 +87,8 @@ class QuizGame:
                     self.play()
                 elif choice == 2:
                     self.add_quiz()
+                elif choice == 3:
+                    self.show_quizzes()
                 elif choice == 5:
                     print("게임을 종료합니다.")
                     return
