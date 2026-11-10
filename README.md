@@ -62,3 +62,7 @@ Windows에서 `python` 명령 대신 `py -3.10 main.py`를 사용할 수 있습�
 | [퀴즈 풀이](docs/screenshots/play.png) | 정답과 오답 안내, 7문제 중 6개 정답으로 85점 기록 |
 | [재실행 후 점수 확인](docs/screenshots/score.png) | 저장한 7문제와 최고 점수 85점을 다시 불러옴 |
 | [Git 커밋 그래프](docs/screenshots/git-log.png) | 기능별 커밋과 퀴즈 풀이 브랜치의 병합 기록 |
+
+## Git 실습 기록
+
+퀴즈 풀기는 `codex/quiz-play` 브랜치에서 작업하고 `main`에 병합했습니다. 개발과 자료 업로드를 마친 뒤 공개 저장소를 다른 폴더에 `git clone`했습니다. 이 실습 기록은 복제본에서 추가하고 커밋한 뒤 `git push`로 올렸습니다. 처음 작업하던 폴더에서 `git pull --ff-only`로 받아 확인했습니다.
