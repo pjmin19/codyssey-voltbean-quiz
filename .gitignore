@@ -1,4 +1,5 @@
 state.json
+/state.*.bak.json
 .state-*.tmp
 __pycache__/
 .venv/
