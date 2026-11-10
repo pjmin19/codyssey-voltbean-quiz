@@ -1,3 +1,6 @@
+from questions import default_quizzes
+
+
 def read_number(prompt, minimum, maximum):
     while True:
         raw = input(prompt).strip()
@@ -15,6 +18,9 @@ def read_number(prompt, minimum, maximum):
 
 
 class QuizGame:
+    def __init__(self):
+        self.quizzes = default_quizzes()
+
     def show_menu(self):
         print("\n=== 볼트빈 커피 퀴즈 ===")
         print("1. 퀴즈 풀기")
