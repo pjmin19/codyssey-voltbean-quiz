@@ -29,6 +29,7 @@ def read_text(prompt):
 class QuizGame:
     def __init__(self):
         self.quizzes = default_quizzes()
+        self.best_score = None
 
     def show_menu(self):
         print("\n=== 볼트빈 커피 퀴즈 ===")
@@ -54,10 +55,13 @@ class QuizGame:
                 correct += 1
                 print("정답입니다!")
             else:
-                print(f"오답입니다. 정답은 {quiz.answer}번 {quiz.choices[quiz.answer - 1]}입니다.")
+                print(f"오답입니다. 정답은 {quiz.answer}번입니다. ({quiz.choices[quiz.answer - 1]})")
 
         score = correct * 100 // total
         print(f"\n결과: {total}문제 중 {correct}문제 정답 ({score}점)")
+        if self.best_score is None or score > self.best_score:
+            self.best_score = score
+            print(f"새 최고 점수입니다. ({score}점)")
 
     def add_quiz(self):
         print("\n새 퀴즈를 등록합니다.")
@@ -78,6 +82,12 @@ class QuizGame:
         for number, quiz in enumerate(self.quizzes, start=1):
             print(f"  {number}. {quiz.question}")
 
+    def show_best_score(self):
+        if self.best_score is None:
+            print("아직 퀴즈를 끝까지 푼 기록이 없습니다.")
+        else:
+            print(f"최고 점수: {self.best_score}점")
+
     def run(self):
         try:
             while True:
@@ -89,11 +99,11 @@ class QuizGame:
                     self.add_quiz()
                 elif choice == 3:
                     self.show_quizzes()
-                elif choice == 5:
+                elif choice == 4:
+                    self.show_best_score()
+                else:
                     print("게임을 종료합니다.")
                     return
-                else:
-                    print("아직 준비 중인 메뉴입니다.")
         except (KeyboardInterrupt, EOFError):
             print("\n입력이 중단되어 게임을 종료합니다.")
 
